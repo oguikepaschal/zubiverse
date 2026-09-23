@@ -12,13 +12,18 @@
   var strip = document.querySelector("[data-strip]");
   var playhead = document.querySelector("[data-playhead]");
   var tcOut = document.querySelector("[data-tc]");
-  var clipLinks = Array.prototype.slice.call(document.querySelectorAll("[data-clip]"));
+  var clipLinks = Array.prototype.slice.call(
+    document.querySelectorAll("[data-clip]"),
+  );
 
   /* Turn scroll progress (0 at the top of the page, 1 at the bottom) into
      the readout shown before "/ 02:00" in the strip. */
+
   function formatTimecode(progress) {
-    // TODO(human): return the timecode string for this progress value.
-    return "00:00";
+    const totalSeconds = Math.floor(progress * 120);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   }
 
   if (strip && playhead && clipLinks.length) {
@@ -39,22 +44,32 @@
       var x = track.offsetLeft + progress * track.offsetWidth;
       playhead.style.setProperty("--head-x", x + "px");
 
-      if (tcOut) { tcOut.textContent = formatTimecode(progress); }
+      if (tcOut) {
+        tcOut.textContent = formatTimecode(progress);
+      }
 
       /* Active clip = the last section whose top has passed the strip */
       var line = strip.getBoundingClientRect().bottom + 24;
       var active = 0;
       sections.forEach(function (s, i) {
-        if (s && s.getBoundingClientRect().top <= line) { active = i; }
+        if (s && s.getBoundingClientRect().top <= line) {
+          active = i;
+        }
       });
       clipLinks.forEach(function (a, i) {
-        if (i === active) { a.setAttribute("aria-current", "true"); }
-        else { a.removeAttribute("aria-current"); }
+        if (i === active) {
+          a.setAttribute("aria-current", "true");
+        } else {
+          a.removeAttribute("aria-current");
+        }
       });
     };
 
     var request = function () {
-      if (!ticking) { ticking = true; window.requestAnimationFrame(render); }
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(render);
+      }
     };
 
     render();
@@ -100,17 +115,23 @@
       });
     });
 
-    sheet.querySelector("[data-close]").addEventListener("click", function () { sheet.close(); });
+    sheet.querySelector("[data-close]").addEventListener("click", function () {
+      sheet.close();
+    });
 
     /* Coming Back from Paystack restores this page from the bfcache with the
        button still busy; reset it. */
     window.addEventListener("pageshow", function (e) {
-      if (e.persisted) { busy(false); }
+      if (e.persisted) {
+        busy(false);
+      }
     });
 
     /* Clicking the dimmed backdrop (the dialog element itself) closes it */
     sheet.addEventListener("click", function (e) {
-      if (e.target === sheet) { sheet.close(); }
+      if (e.target === sheet) {
+        sheet.close();
+      }
     });
 
     form.addEventListener("submit", function (e) {
@@ -120,7 +141,10 @@
       var name = form.elements.name.value.trim();
       var email = form.elements.email.value.trim();
       var bad = false;
-      if (!name) { fieldError("name", "Enter your name."); bad = true; }
+      if (!name) {
+        fieldError("name", "Enter your name.");
+        bad = true;
+      }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         fieldError("email", "Enter a valid email address, like you@gmail.com.");
         bad = true;
@@ -133,13 +157,21 @@
       busy(true);
       fetch("/api/checkout", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ name: name, email: email })
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ name: name, email: email }),
       })
         .then(function (res) {
-          return res.json().catch(function () { return {}; }).then(function (body) {
-            return { ok: res.ok, body: body };
-          });
+          return res
+            .json()
+            .catch(function () {
+              return {};
+            })
+            .then(function (body) {
+              return { ok: res.ok, body: body };
+            });
         })
         .then(function (r) {
           if (r.ok && r.body.url) {
@@ -151,12 +183,15 @@
             fieldError(r.body.field, r.body.error);
             form.elements[r.body.field].focus();
           } else {
-            formError.textContent = r.body.error || "We couldn't start checkout. Please try again in a moment.";
+            formError.textContent =
+              r.body.error ||
+              "We couldn't start checkout. Please try again in a moment.";
           }
         })
         .catch(function () {
           busy(false);
-          formError.textContent = "We couldn't reach the payment page. Check your connection and try again.";
+          formError.textContent =
+            "We couldn't reach the payment page. Check your connection and try again.";
         });
     });
   }
@@ -176,10 +211,13 @@
       buybar.classList.toggle("is-visible", !heroVisible && !ctaVisible);
     };
 
-    new IntersectionObserver(function (entries) {
-      heroVisible = entries[0].isIntersecting;
-      sync();
-    }, { rootMargin: "-40% 0px 0px 0px" }).observe(hero);
+    new IntersectionObserver(
+      function (entries) {
+        heroVisible = entries[0].isIntersecting;
+        sync();
+      },
+      { rootMargin: "-40% 0px 0px 0px" },
+    ).observe(hero);
 
     if (finalCta) {
       new IntersectionObserver(function (entries) {
