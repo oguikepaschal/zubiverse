@@ -6,14 +6,13 @@
   <script>document.documentElement.classList.add('js');</script>
   <title>Stop Editing Like a Beginner — The Breakthrough Edit System</title>
   <meta name="description" content="The Breakthrough Edit System — a repeatable process for Nigerian creators to get professional, view-worthy edits done fast. Course + 4 bonuses for ₦8,800.">
+  <meta name="theme-color" content="#121315">
 
   <meta property="og:title" content="Stop Editing Like a Beginner — The Breakthrough Edit System">
   <meta property="og:description" content="Get professional, view-worthy edits done fast, without the wasted hours. Course + 4 bonuses for ₦8,800.">
   <meta property="og:type" content="website">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -27,15 +26,31 @@
     <div class="container nav__inner">
       <a class="brand" href="#top" aria-label="Stop Editing Like a Beginner — home">
         <span class="mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="7" width="7" height="10" rx="1.5"/><rect x="14" y="7" width="7" height="10" rx="1.5"/><path d="M12 3v18"/></svg>
         </span>
         <span class="brand__name">
           <b>Stop Editing Like a Beginner</b>
           <span class="brand__sub">The Breakthrough Edit System</span>
         </span>
       </a>
-      <a class="btn btn--sm" href="#get">Get the system</a>
+      <a class="btn btn--sm nav__cta" href="#get" data-checkout>Get the system</a>
     </div>
+
+    <!-- Project strip: each section is a clip, the playhead follows the scroll -->
+    <nav class="strip" aria-label="Page sections" data-strip>
+      <div class="container strip__inner">
+        <span class="strip__tc" aria-hidden="true"><b data-tc>00:00</b> / 02:00</span>
+        <ol class="strip__clips">
+          <li><a href="#top" data-clip="top">Hook</a></li>
+          <li><a href="#problem" data-clip="problem">Problem</a></li>
+          <li><a href="#system" data-clip="system">System</a></li>
+          <li><a href="#whats-inside" data-clip="whats-inside">Inside</a></li>
+          <li><a href="#proof" data-clip="proof">Proof</a></li>
+          <li><a href="#get" data-clip="get">Export</a></li>
+        </ol>
+        <span class="strip__head" aria-hidden="true" data-playhead></span>
+      </div>
+    </nav>
   </header>
 
   <main id="main">
@@ -44,11 +59,14 @@
     <section class="hero" id="top">
       <div class="container hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow">For Nigerian creators stuck at low views</p>
-          <h1>Stop Editing Like a <span class="u-accent">Beginner</span></h1>
+          <div class="ruler" aria-hidden="true">
+            <span>00:00</span><span>00:02</span><span>00:04</span><span>00:06</span>
+          </div>
+          <h1>Stop Editing Like a <span class="cut">Beginner</span></h1>
           <p class="lede">The Breakthrough Edit System — get professional, view-worthy edits done fast, without the wasted hours.</p>
+          <p class="audience">For Nigerian creators stuck at low views</p>
           <div class="cta">
-            <a class="btn btn--lg" href="#get">
+            <a class="btn btn--lg" href="#get" data-checkout>
               Get the System for &#8358;8,800
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
@@ -57,20 +75,41 @@
           </div>
         </div>
         <div class="hero__media">
-          <div class="phone">
+          <div class="monitor">
             <img src="assets/img/hero-edit.jpg" width="736" height="1308"
                  alt="A finished vertical edit with a bold zoom-blur effect and a centred title, made in CapCut.">
+            <span class="monitor__tc" aria-hidden="true">00:00:02:14</span>
           </div>
+        </div>
+      </div>
+
+      <div class="container" aria-hidden="true">
+        <div class="lanes">
+          <div class="lanes__ruler"><span>00:00</span><span>00:30</span><span>01:00</span><span>01:30</span><span>02:00</span></div>
+          <div class="lane lane--video">
+            <span class="clip" style="--w:22%; background-image:url(assets/img/hero-edit.jpg)"></span>
+            <span class="clip" style="--w:18%; background-image:url(assets/img/workflow-macbook.jpg)"></span>
+            <span class="clip" style="--w:26%; background-image:url(assets/img/capcut-mobile-timeline.jpg)"></span>
+            <span class="clip" style="--w:16%; background-image:url(assets/img/proof-views-7m.jpg)"></span>
+            <span class="clip" style="--w:18%; background-image:url(assets/img/capcut-effects-timeline.jpg)"></span>
+          </div>
+          <div class="lane lane--text">
+            <span class="clip clip--text" style="--x:4%; --w:30%">Hook &middot; first 2 seconds</span>
+            <span class="clip clip--text" style="--x:58%; --w:24%">Export settings</span>
+          </div>
+          <div class="lane lane--audio"><img src="assets/img/waveform.svg" alt="" width="640" height="28"></div>
+          <span class="lanes__head"></span>
         </div>
       </div>
     </section>
 
     <!-- ============ PROBLEM ============ -->
-    <section class="section">
-      <div class="container narrow reveal">
+    <section class="section" id="problem">
+      <div class="container narrow">
+        <div class="band"><span class="band__tc" aria-hidden="true">00:14</span></div>
         <p class="lede--plain">You've watched the tutorials. Tried the transitions. Posted at the &ldquo;right&rdquo; times. So why are your edits still taking all night — and still getting ignored?</p>
 
-        <ul class="painlist">
+        <ul class="painlist clipbox">
           <li>You spent 8&ndash;10 hours on one edit that should've taken 2, and it still didn't look right.</li>
           <li>You downloaded transition pack after transition pack, hoping the next one would finally be the fix.</li>
           <li>You posted your best work and watched it sit at under 200 views while someone else's simpler edit hit 50k.</li>
@@ -85,12 +124,12 @@
 
     <!-- ============ SOLUTION ============ -->
     <section class="section section--alt" id="system">
-      <div class="container narrow reveal">
-        <p class="eyebrow">Introducing</p>
+      <div class="container narrow">
+        <div class="band"><span class="band__tc" aria-hidden="true">00:32</span><span class="band__label">Introducing</span></div>
         <h2>The Breakthrough Edit System</h2>
         <p class="body">A course built from real experience shadow-editing accounts that have pulled 500K&ndash;700K+ views, for Nigerian creators who are done guessing and ready for a repeatable process. This isn't theory. It's the exact workflow, hook-building method, and mindset shift that separates edits nobody watches from edits that stop the scroll.</p>
 
-        <ul class="wins">
+        <ul class="wins clipbox">
           <li>Cut your editing time from 8&ndash;10 hours down to a repeatable 2-hour process</li>
           <li>Source high-res clips fast, the way pro editors do it</li>
           <li>Build a hook in the first 2 seconds that stops people mid-scroll</li>
@@ -99,28 +138,30 @@
         </ul>
       </div>
 
-      <div class="container reveal">
-        <figure class="shot shot--wide">
-          <img src="assets/img/before-after-wednesday.jpg" width="736" height="414"
-               alt="The same clip shown before and after editing — the after version is sharper, brighter and colour-graded.">
+      <div class="container">
+        <figure class="shot">
+          <div class="monitor monitor--wide">
+            <img src="assets/img/capcut-effects-timeline.jpg" width="600" height="424" loading="lazy" decoding="async"
+                 alt="CapCut on desktop with the effects library open and a Color Flicker effect being applied to a clip on the timeline.">
+          </div>
           <figcaption>Same clip, before and after the system. The difference is technique, not talent.</figcaption>
         </figure>
       </div>
 
-      <div class="container center reveal" style="margin-top: clamp(38px, 6vw, 60px);">
-        <a class="btn btn--lg" href="#get">Get the System for &#8358;8,800</a>
+      <div class="container center">
+        <a class="btn btn--lg" href="#get" data-checkout>Get the System for &#8358;8,800</a>
         <p class="cta__micro">Instant access &middot; Course + 4 bonuses</p>
       </div>
     </section>
 
     <!-- ============ VALUE STACK ============ -->
     <section class="section" id="whats-inside">
-      <div class="container narrow reveal">
-        <p class="eyebrow">What you get</p>
+      <div class="container narrow">
+        <div class="band"><span class="band__tc" aria-hidden="true">00:58</span><span class="band__label">What you get</span></div>
         <h2>Everything in the system</h2>
 
         <div class="stack">
-          <div class="stack__row stack__row--main">
+          <div class="stack__row stack__row--main" data-lane="V1">
             <div>
               <h3>The Breakthrough Edit System (Course)</h3>
               <p>The core course — workflow, hook-building method, and the mindset shift.</p>
@@ -128,7 +169,7 @@
             <span class="price">&#8358;98,000</span>
           </div>
 
-          <div class="stack__row">
+          <div class="stack__row stack__row--audio" data-lane="A1">
             <div>
               <h3>Bonus 1 — VIP Signal Group</h3>
               <p>Real-time drops on trending sounds, trending edits, and the best times to post, before everyone else catches on.</p>
@@ -136,7 +177,7 @@
             <span class="price">&#8358;5,000</span>
           </div>
 
-          <div class="stack__row">
+          <div class="stack__row stack__row--text" data-lane="T1">
             <div>
               <h3>Bonus 2 — Editing Resource Vault</h3>
               <p>Unlimited access to green screens, transitions, memes, sounds, and other editing tools in one place.</p>
@@ -144,7 +185,7 @@
             <span class="price">&#8358;5,300</span>
           </div>
 
-          <div class="stack__row">
+          <div class="stack__row stack__row--fx" data-lane="FX">
             <div>
               <h3>Bonus 3 — Unlocked CapCut Access</h3>
               <p>Full toolkit, no watermarks, no limits.</p>
@@ -152,7 +193,7 @@
             <span class="price">&#8358;6,600</span>
           </div>
 
-          <div class="stack__row">
+          <div class="stack__row stack__row--marker" data-lane="OV">
             <div>
               <h3>Bonus 4 — UK TikTok Account <span class="tag">66% off</span></h3>
               <p>Solves the Nigeria-can't-monetize problem, backed by a 1-week anti-shadow-ban guarantee. Terms and conditions apply.</p>
@@ -167,18 +208,24 @@
         </div>
 
         <div class="pricecard">
-          <p class="pricecard__label">Your price today</p>
+          <p class="pricecard__label"><svg class="pricecard__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M7.5 8.5 12 4l4.5 4.5"/><path d="M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14"/></svg>Your price today</p>
+          <dl class="settings">
+            <div><dt>Includes</dt><dd>Course + 4 bonuses</dd></div>
+            <div><dt>Delivered</dt><dd>Email / Telegram</dd></div>
+          </dl>
           <p class="pricecard__amount">&#8358;8,800 <s>&#8358;117,300</s></p>
           <p class="pricecard__note">That's less than the airtime you'll spend this month scrolling past edits that aren't half as good as what you're about to learn.</p>
-          <a class="btn btn--lg btn--block" href="confirmation.html">Get instant access</a>
+          <a class="btn btn--lg btn--block" href="#get" data-checkout>Get instant access</a>
           <p class="cta__micro">Sent to your email / Telegram after confirmation</p>
         </div>
       </div>
 
-      <div class="container reveal">
-        <figure class="shot shot--wide">
-          <img src="assets/img/workflow-macbook.jpg" width="736" height="980"
-               alt="A creator editing a project on a laptop in CapCut, with filters and a multi-track timeline open.">
+      <div class="container">
+        <figure class="shot">
+          <div class="monitor monitor--wide">
+            <img src="assets/img/workflow-macbook.jpg" width="736" height="980" loading="lazy" decoding="async"
+                 alt="A creator editing a project on a laptop in CapCut, with filters and a multi-track timeline open.">
+          </div>
           <figcaption>The actual workflow — how pro editors move, not another effects tutorial.</figcaption>
         </figure>
       </div>
@@ -186,25 +233,25 @@
 
     <!-- ============ PROOF ============ -->
     <section class="section section--alt" id="proof">
-      <div class="container narrow reveal">
-        <p class="eyebrow">Real results</p>
+      <div class="container narrow">
+        <div class="band"><span class="band__tc" aria-hidden="true">01:24</span><span class="band__label">Real results</span></div>
         <h2>What happens when the process is right</h2>
       </div>
 
-      <div class="container reveal">
-        <div class="receipts">
-          <figure>
-            <img src="assets/img/proof-views-7m.jpg" width="736" height="732"
+      <div class="container">
+        <div class="receipts" role="region" aria-label="Analytics screenshots" tabindex="0">
+          <figure class="clipbox clipbox--video">
+            <img src="assets/img/proof-views-7m.jpg" width="736" height="732" loading="lazy" decoding="async"
                  alt="TikTok analytics panel showing 7.8 million post views over 365 days.">
             <figcaption>7.8M post views &middot; 365 days</figcaption>
           </figure>
-          <figure>
-            <img src="assets/img/proof-views-1-4m.jpg" width="736" height="920"
+          <figure class="clipbox clipbox--video">
+            <img src="assets/img/proof-views-1-4m.jpg" width="736" height="920" loading="lazy" decoding="async"
                  alt="TikTok analytics panel showing 1.4 million post views and 237K likes.">
             <figcaption>1.4M post views &middot; 237K likes</figcaption>
           </figure>
-          <figure>
-            <img src="assets/img/proof-hearts.jpg" width="736" height="414"
+          <figure class="clipbox clipbox--video">
+            <img src="assets/img/proof-hearts.jpg" width="736" height="414" loading="lazy" decoding="async"
                  alt="TikTok notification summary showing 345.1K likes on a run of posts.">
             <figcaption>345K likes on one run</figcaption>
           </figure>
@@ -212,15 +259,15 @@
         <p class="receipts__note">Analytics from creator accounts studied while building the system.</p>
       </div>
 
-      <div class="container narrow reveal">
+      <div class="container narrow">
         <div class="quotes">
-          <blockquote>
-            <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="clipbox clipbox--overlay">
+            <div class="stars" role="img" aria-label="Rated 5 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3.2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3.2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3.2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3.2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3.2Z"/></svg></div>
             <p>&ldquo;I used to spend my whole night on one edit and still hate how it turned out. Now I'm done in under 2 hours and it actually looks clean.&rdquo;</p>
             <footer>Tobi, 19, Lagos <span>Cut editing time by 70% within 2 weeks</span></footer>
           </blockquote>
-          <blockquote>
-            <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="clipbox clipbox--overlay">
+            <div class="stars" role="img" aria-label="Rated 5 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3.2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3.2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3.2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3.2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3.2Z"/></svg></div>
             <p>&ldquo;I kept thinking maybe editing just wasn't for me. This showed me it was never talent, it was the process I was missing.&rdquo;</p>
             <footer>Chiamaka, 20, Benin City <span>First edit after the course outperformed her last 10 posts combined</span></footer>
           </blockquote>
@@ -232,22 +279,27 @@
 
     <!-- ============ FINAL CTA ============ -->
     <section class="section final" id="get">
-      <div class="container reveal">
-        <figure class="shot shot--wide">
-          <img src="assets/img/before-after-desk.jpg" width="736" height="414"
-               alt="A creator's talking-head clip shown before and after colour grading in CapCut.">
+      <div class="container">
+        <div class="band"><span class="band__tc" aria-hidden="true">01:52</span></div>
+        <figure class="shot">
+          <div class="monitor monitor--wide monitor--top">
+            <img src="assets/img/capcut-mobile-timeline.jpg" width="736" height="1308" loading="lazy" decoding="async"
+                 alt="A dense CapCut mobile timeline with dozens of cuts, stacked sound-effect lanes and keyframe markers.">
+          </div>
         </figure>
       </div>
 
-      <div class="container narrow center reveal">
+      <div class="container narrow center">
+        <div class="final__clip clipbox clipbox--audio">
         <h2>Get instant access — &#8358;8,800</h2>
         <p class="body">Course + 4 bonuses &middot; Delivered straight to you</p>
-        <a class="btn btn--lg" href="confirmation.html">Get the System for &#8358;8,800</a>
+        <a class="btn btn--lg" href="#get" data-checkout>Get the System for &#8358;8,800</a>
         <p class="cta__micro">Sent to your email / Telegram after confirmation</p>
 
         <div class="guarantee">
-          <span class="guarantee__icon" aria-hidden="true">&#128737;&#65039;</span>
+          <svg class="guarantee__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.1 8.2 7.5 9.5 4.4-1.3 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m8.8 12.2 2.2 2.2 4.3-4.6"/></svg>
           <p><strong>Full Guarantee.</strong> Go through the entire system. If you don't get real value from it, you get a full refund.</p>
+        </div>
         </div>
       </div>
     </section>
@@ -260,7 +312,7 @@
       <p class="foot__meta">&#8358;8,800 &middot; Course + 4 bonuses</p>
       <p class="foot__legal">
         &copy; <span data-year>2026</span> Stop Editing Like a Beginner. All rights reserved. &middot;
-        Questions? <a href="mailto:hello@example.com">hello@example.com</a>
+        Questions? <a href="mailto:cclipvverse@gmail.com">cclipvverse@gmail.com</a>
       </p>
     </div>
   </footer>
@@ -271,9 +323,43 @@
         <strong>&#8358;8,800</strong>
         <span>Course + 4 bonuses</span>
       </div>
-      <a class="btn btn--sm" href="#get">Get access</a>
+      <a class="btn btn--sm" href="#get" data-checkout>Get access</a>
     </div>
   </div>
+
+
+  <dialog class="sheet" id="checkout" aria-labelledby="checkout-title">
+    <form class="sheet__form" novalidate data-checkout-form>
+      <div class="sheet__bar">
+        <svg class="sheet__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M7.5 8.5 12 4l4.5 4.5"/><path d="M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14"/></svg>
+        <h2 id="checkout-title">Get the System &middot; &#8358;8,800</h2>
+        <button class="sheet__close" type="button" data-close aria-label="Close checkout">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <div class="sheet__body">
+        <p class="sheet__lede">Enter your details, then pay securely on Paystack. You'll come straight back here for your Telegram access.</p>
+
+        <div class="field">
+          <label for="co-name">Full name</label>
+          <input id="co-name" name="name" type="text" autocomplete="name" maxlength="100" required aria-describedby="co-name-error">
+          <p class="field__error" id="co-name-error" data-error-for="name"></p>
+        </div>
+
+        <div class="field">
+          <label for="co-email">Email</label>
+          <input id="co-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" required aria-describedby="co-email-hint co-email-error">
+          <p class="field__hint" id="co-email-hint">Your receipt goes here.</p>
+          <p class="field__error" id="co-email-error" data-error-for="email"></p>
+        </div>
+
+        <p class="sheet__error" role="alert" data-form-error></p>
+
+        <button class="btn btn--lg btn--block" type="submit" data-submit>Continue to payment</button>
+        <p class="cta__micro">Course + 4 bonuses &middot; Secured by Paystack</p>
+      </div>
+    </form>
+  </dialog>
 
   <script src="assets/main.js"></script>
 </body>

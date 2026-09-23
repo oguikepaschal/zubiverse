@@ -3,3 +3,7 @@
 .env*.local
 .vercel
 node_modules
+
+# Local tooling
+.impeccable/
+.claude/launch.json

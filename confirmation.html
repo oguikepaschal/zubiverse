@@ -6,20 +6,19 @@
   <script>document.documentElement.classList.add('js');</script>
   <title>Order Confirmed — The Breakthrough Edit System</title>
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#121315">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="nav is-stuck" data-nav>
+  <header class="nav" data-nav>
     <div class="container nav__inner">
       <a class="brand" href="index.html" aria-label="Stop Editing Like a Beginner — home">
         <span class="mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="7" width="7" height="10" rx="1.5"/><rect x="14" y="7" width="7" height="10" rx="1.5"/><path d="M12 3v18"/></svg>
         </span>
         <span class="brand__name">
           <b>Stop Editing Like a Beginner</b>
@@ -31,63 +30,80 @@
 
   <main id="main">
     <section class="section confirm">
-      <div class="container narrow reveal">
-        <span class="badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        </span>
+      <div class="container narrow">
+        <div class="done" data-status data-state="checking" role="status" aria-live="polite">
+          <p class="done__row">
+            <svg class="done__ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <span data-status-text>Checking your payment&hellip;</span>
+            <span class="done__pct" aria-hidden="true" data-status-pct></span>
+          </p>
+          <span class="done__bar" aria-hidden="true"></span>
+        </div>
 
-        <p class="eyebrow">Order confirmed</p>
+        <noscript>
+          <p class="note-box">Turn on JavaScript to confirm your payment and see your Telegram access links.</p>
+        </noscript>
+
+        <div class="unpaid" data-unpaid hidden>
+          <h1>We couldn't confirm a payment.</h1>
+          <p class="lede" data-unpaid-text>If you've just paid, refresh this page. Still stuck? Email us from the address you paid with and we'll send your access.</p>
+          <div class="unpaid__actions">
+            <a class="btn btn--lg" href="index.html#get">Get the System for &#8358;8,800</a>
+            <a class="btn btn--lg btn--ghost" href="mailto:cclipvverse@gmail.com">Email support</a>
+          </div>
+        </div>
+
+        <div class="paid" data-paid hidden>
         <h1>Your order is confirmed.</h1>
         <p class="lede">Check your email for a copy. You made a smart decision — here is everything you need to get started.</p>
 
+        <div class="tg">
+          <p class="body">Join others applying this system in the VIP Telegram group. Ask questions, share wins, and get the trend and posting-time drops as they happen.</p>
+          <div class="tg__buttons">
+            <a class="btn btn--lg" data-link="vault" target="_blank" rel="noopener">Join Clip Verse Resource Vault</a>
+            <a class="btn btn--lg" data-link="signal" target="_blank" rel="noopener">Join Clip Verse Signal Group</a>
+          </div>
+        </div>
+
         <ul class="downloads">
-          <li>
-            <span class="ico" aria-hidden="true">&#128229;</span>
+          <li data-lane="V1">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9Z"/></svg>
             <span class="name">Main Course — The Breakthrough Edit System</span>
-            <a class="get" href="#">Open</a>
+            <span class="where">In Telegram</span>
           </li>
-          <li>
-            <span class="ico" aria-hidden="true">&#128229;</span>
+          <li data-lane="A1" class="lane-audio">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h3l2-6 4 12 2-6h5"/></svg>
             <span class="name">Bonus 1 — VIP Signal Group Invite (Telegram)</span>
-            <a class="get" href="#">Join</a>
+            <span class="where">In Telegram</span>
           </li>
-          <li>
-            <span class="ico" aria-hidden="true">&#128229;</span>
+          <li data-lane="T1" class="lane-text">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v6"/></svg>
             <span class="name">Bonus 2 — Editing Resource Vault</span>
-            <a class="get" href="#">Open</a>
+            <span class="where">In Telegram</span>
           </li>
-          <li>
-            <span class="ico" aria-hidden="true">&#128229;</span>
+          <li data-lane="FX" class="lane-fx">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.6-1.7"/></svg>
             <span class="name">Bonus 3 — Unlocked CapCut Access Instructions</span>
-            <a class="get" href="#">Open</a>
+            <span class="where">In Telegram</span>
           </li>
-          <li>
-            <span class="ico" aria-hidden="true">&#128229;</span>
+          <li data-lane="OV" class="lane-marker">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
             <span class="name">Bonus 4 — UK TikTok Account Details</span>
-            <a class="get" href="#">Open</a>
+            <span class="where">In Telegram</span>
           </li>
         </ul>
 
         <p class="note-box">Save these now and check your email for a backup copy of everything. Begin with <strong>Module 1: Speed &amp; Workflow</strong> — apply it to your very next edit before moving on to the hook-building module.</p>
-      </div>
 
-      <div class="container narrow">
         <hr class="divider">
 
-        <div class="upsell reveal">
-          <p class="eyebrow" style="justify-content:center;">Want to accelerate your results?</p>
-          <h3>Personal Edit Review</h3>
+        <div class="upsell">
+          <p class="upsell__bar">Want to accelerate your results?</p>
+          <h2>Personal Edit Review</h2>
           <p class="price-line">&#8358;15,000</p>
           <p>Send in 2&ndash;3 of your edits and get direct, personal feedback on exactly what's holding them back and what to fix before you post again.</p>
-          <p style="margin-top:20px;">
-            <a class="btn btn--lg" href="#">Add Personal Review — &#8358;15,000</a>
-          </p>
-          <a class="decline" href="index.html">No thanks, I have what I need</a>
+          <a class="btn btn--lg btn--ghost" href="https://t.me/+2349126359248" target="_blank" rel="noopener">Message us on Telegram</a>
         </div>
-
-        <div class="next-block reveal">
-          <p class="body">Join others applying this system in the VIP Telegram group. Ask questions, share wins, and get the trend and posting-time drops as they happen.</p>
-          <a class="btn btn--lg btn--ghost" href="#">Join the Telegram Group</a>
         </div>
       </div>
     </section>
@@ -98,11 +114,12 @@
       <p class="foot__brand">Stop Editing Like a Beginner</p>
       <p class="foot__legal">
         &copy; <span data-year>2026</span> Stop Editing Like a Beginner. All rights reserved. &middot;
-        Questions? <a href="mailto:hello@example.com">hello@example.com</a>
+        Questions? <a href="mailto:cclipvverse@gmail.com">cclipvverse@gmail.com</a>
       </p>
     </div>
   </footer>
 
   <script src="assets/main.js"></script>
+  <script src="assets/confirm.js"></script>
 </body>
 </html>
