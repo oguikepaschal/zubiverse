@@ -218,11 +218,11 @@ A graphite editor with four lane colours that keep their CapCut meanings, plus o
 - **Audio Teal** (`audio-teal`): the audio lane and the export action. Every buy button, the final CTA clip, the Export clip in the project strip, the checkout sheet's export glyph, the guarantee shield, the confirmation progress fill and the text caret. **Teal Lift** (`audio-teal-hi`) is its hover state only. **Deep Teal Ink** (`audio-ink`) is the text colour on teal (7.25:1) and the `::selection` text.
 
 ### Secondary
-- **Caption Amber** (`text-amber`): the text lane. Caption callouts, the audience line, ruler-band label chips, the confirmation note box, the T1 value-stack row and download, the hero's text-lane clips, rating stars, and the launch price in the announcement bar. It appears on dark ground as a 1px edge at 50 to 70 percent alpha over a 7 to 14 percent fill.
+- **Caption Amber** (`text-amber`): the text lane. Caption callouts, the audience line, ruler-band label chips, the confirmation note box, the T1 value-stack row and download, the hero's text-lane clips, and the launch price in the announcement bar. It appears on dark ground as a 1px edge at 50 to 70 percent alpha over a 7 to 14 percent fill.
 
 ### Tertiary
 - **Marker Red** (`marker-red`): cuts and markers. The razor stroke through "Beginner", the slashes on the pain list, the pain-list clip edge, the invalid-field border and focus ring, and the failed export bar. **Marker Ink** (`marker-ink`) is its readable text tint on dark (6.85:1 on `track-raised`): field and form errors, the failed status row, and the "66% off" tag.
-- **Overlay Blue** (`overlay-blue`): the overlay lane. Testimonial clips, and the FX row in the value stack and downloads list.
+- **Overlay Blue** (`overlay-blue`): the overlay lane. The FX row in the value stack and downloads list.
 
 ### Neutral
 - **Graphite** (`graphite`): page ground, sticky nav, input fill, the trim-bracket grip notch.
@@ -272,9 +272,8 @@ A single-column scroll with an 1080px container and a 700px narrow column for re
 - **Section band:** each section after the hero opens with a ruler band, a timecode in Ink Faint over a repeating 12 by 6px tick graphic (`ruler-ticks.svg`), with clamp(36px, 5vw, 52px) below it.
 - **Hero:** a 1.15fr / 0.85fr grid of copy and a phone preview monitor (max 300px, 9:13), followed by a full-width lanes panel (video thumbnails, text clips, audio waveform, static playhead).
 - **Receipts:** three columns; below 860px they become a horizontal scroll-snap row of 82 percent-wide clips.
-- **Testimonials:** two columns, one below 640px.
 - **Value stack:** a grid of a 48px lane-header column (V1, A1, T1, FX, OV), the clip, and the price; below 640px the header column narrows to 36px and the price drops under the clip.
-- **Breakpoints:** 860px (hero stacks, nav CTA hides, mobile buy bar appears, receipts scroll) and 640px (strip becomes a thin progress readout, text lane hides, quotes and Telegram buttons stack).
+- **Breakpoints:** 860px (hero stacks, nav CTA hides, mobile buy bar appears, receipts scroll) and 640px (strip becomes a thin progress readout, text lane hides, Telegram buttons stack).
 - **Mobile buy bar:** fixed to the bottom below 860px, shown only after the hero leaves and hidden again while the final section is on screen; the body reserves 76px for it.
 
 Spacing is set in small, close steps (3, 4, 8, 14, 18 and 28px recur) rather than a strict 8pt grid, which matches the tight packing of editor chrome.
@@ -311,7 +310,7 @@ The export action: solid, compact and unmistakable.
 The signature container: a 6px block with a 1px lane-coloured edge, a faint lane fill, and full-height 7px trim brackets in the lane's solid colour. Lanes set three properties: the edge (roughly 0.45 to 0.6 alpha), the fill (0.03 to 0.05 alpha) and the solid bracket colour.
 - **Video** (white, bracket #d9dadd): the proof receipts, with 7px inner side padding so screenshots clear the brackets and captions sit under a Line rule.
 - **Audio** (teal): the wins list and the final CTA clip.
-- **Overlay** (blue): the testimonials.
+- **Overlay** (blue): available as `.clipbox--overlay`. No section uses it since the testimonials were removed.
 - **Marker** (red): the pain list.
 - Value-stack rows and download rows use the same lane edges and fills without brackets, with a lane-header cell (V1, A1, T1, FX, OV) split off by a Line rule.
 

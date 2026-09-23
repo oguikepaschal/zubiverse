@@ -31,7 +31,7 @@
       var url = links[a.getAttribute("data-link")];
       if (url) { a.href = url; }
     });
-    setState("done", "Order confirmed", "100%");
+    setState("done", "Payment received", "100%");
     paidBlock.hidden = false;
   }
 
